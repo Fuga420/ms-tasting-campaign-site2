@@ -508,3 +508,106 @@ tbody tr:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Campaign article page */
+.campaign-article {
+  padding: 56px 0 72px;
+}
+
+.article-heading {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+.article-heading h1 span {
+  font-size: .58em;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 46%) minmax(0, 1fr);
+  gap: 52px;
+  align-items: start;
+}
+
+.campaign-poster {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--soft);
+}
+
+.campaign-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article-copy {
+  padding-top: 4px;
+}
+
+.article-copy .intro-line {
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.article-copy h2 {
+  margin-bottom: 24px;
+}
+
+.article-copy p {
+  max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.info-list {
+  margin: 30px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.info-list div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.info-list dt,
+.info-list dd {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.info-list dt {
+  color: var(--muted);
+}
+
+.info-list dd {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .campaign-article {
+    padding-top: 40px;
+  }
+
+  .info-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

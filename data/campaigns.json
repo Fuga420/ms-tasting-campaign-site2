@@ -900,6 +900,76 @@
       ]
     },
     {
+      "id": "ms-select-5-staff-edition-2025-03",
+      "title": "M’s Select 5 — Staff Edition —",
+      "subtitle": "“人で選ぶ”ウイスキー体験。スタッフ5名による、数量限定の5杯セット。",
+      "period": "2025.03",
+      "lead": "3月3日より、スタッフ5名が二週間交代でそれぞれのオリジナルセレクトを販売開始。個性あふれる5杯の体験セットに、フルボトル500円OFFクーポンを同封した企画です。",
+      "archiveMeta": [
+        "5 Personal Selects",
+        "数量限定",
+        "500円OFFクーポン入り"
+      ],
+      "image": "assets/images/ms-select-5-staff-edition.png",
+      "items": [
+        {
+          "id": "ms-select-5-01",
+          "distilledYear": "",
+          "bottlingSeries": "Staff Select 01",
+          "distillery": "Personal Select",
+          "age": "",
+          "price": "",
+          "stock": true,
+          "tasting": true,
+          "group": "M’s Select 5"
+        },
+        {
+          "id": "ms-select-5-02",
+          "distilledYear": "",
+          "bottlingSeries": "Staff Select 02",
+          "distillery": "Personal Select",
+          "age": "",
+          "price": "",
+          "stock": true,
+          "tasting": true,
+          "group": "M’s Select 5"
+        },
+        {
+          "id": "ms-select-5-03",
+          "distilledYear": "",
+          "bottlingSeries": "Staff Select 03",
+          "distillery": "Personal Select",
+          "age": "",
+          "price": "",
+          "stock": true,
+          "tasting": true,
+          "group": "M’s Select 5"
+        },
+        {
+          "id": "ms-select-5-04",
+          "distilledYear": "",
+          "bottlingSeries": "Staff Select 04",
+          "distillery": "Personal Select",
+          "age": "",
+          "price": "",
+          "stock": true,
+          "tasting": true,
+          "group": "M’s Select 5"
+        },
+        {
+          "id": "ms-select-5-05",
+          "distilledYear": "",
+          "bottlingSeries": "Staff Select 05",
+          "distillery": "Personal Select",
+          "age": "",
+          "price": "",
+          "stock": true,
+          "tasting": true,
+          "group": "M’s Select 5"
+        }
+      ]
+    },
+    {
       "id": "japanese-whisky-feature-2025-03",
       "title": "ジャパニーズウイスキー特集",
       "subtitle": "日本の蒸溜所を、少量ずつ比べる。",

@@ -30,6 +30,17 @@ function stats(items) {
   };
 }
 
+function archiveMeta(campaign) {
+  if (Array.isArray(campaign.archiveMeta) && campaign.archiveMeta.length) {
+    return campaign.archiveMeta;
+  }
+
+  const s = stats(campaign.items || []);
+  const unit = campaign.unit || '本';
+  const price = s.priceMin !== null && s.priceMax !== null ? `${yen(s.priceMin)}〜${yen(s.priceMax)}` : '価格未定';
+  return [`${s.total}${unit}`, `試飲可 ${s.tasting}${unit}`, price];
+}
+
 async function initArchive() {
   try {
     const response = await fetch(dataPath);
@@ -38,19 +49,15 @@ async function initArchive() {
     const campaigns = [...data.campaigns].sort((a, b) => String(b.period).localeCompare(String(a.period)));
 
     archiveEl.innerHTML = campaigns.map((campaign) => {
-      const s = stats(campaign.items || []);
       const href = `${rootPath}campaigns/${campaign.id}/`;
       const label = campaign.isCurrent ? '最新企画' : 'バックナンバー';
+      const meta = archiveMeta(campaign).map((item) => `<span>${escapeHtml(item)}</span>`).join('');
       return `
         <a class="archive-card" href="${href}">
           <p class="archive-card__period">${escapeHtml(campaign.period)} / ${label}</p>
           <h3>${escapeHtml(campaign.title)}</h3>
           <p>${escapeHtml(campaign.subtitle || campaign.lead)}</p>
-          <div class="archive-card__meta">
-            <span>${s.total}本</span>
-            <span>試飲可 ${s.tasting}本</span>
-            <span>${yen(s.priceMin)}〜${yen(s.priceMax)}</span>
-          </div>
+          <div class="archive-card__meta">${meta}</div>
         </a>
       `;
     }).join('');

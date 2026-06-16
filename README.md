@@ -1,64 +1,89 @@
 # M's Tasting Room Campaign Site
 
-M's Tasting Room の企画用デモサイトです。GitHub Pages でそのまま公開できます。
+M's Tasting Room の企画用デモサイトです。親会社サイトの「上質・落ち着き・ウイスキーらしさ」をトーンマナーとして参考にしつつ、商品リストの見やすさを主役にした静的サイトです。
 
-## 構成
+## 内容
 
-```text
-index.html                         最新企画
-campaigns/index.html               バックナンバー一覧
-campaigns/birthyear-vintage/       最新企画の個別ページ
-campaigns/peated-malt-selection-2025-05/
-campaigns/sherry-cask-collection-2025-04/
-campaigns/japanese-whisky-feature-2025-03/
-assets/css/style.css
-assets/js/main.js
-assets/js/backnumbers.js
-data/campaigns.json
+- `index.html`：トップページ
+- `assets/css/style.css`：デザイン
+- `assets/js/main.js`：検索・絞り込み・並び替え
+- `data/campaigns.json`：企画情報と商品リスト
+- `.nojekyll`：GitHub Pagesで静的ファイルをそのまま配信するための空ファイル
+
+## データ更新方法
+
+毎月の企画を追加する場合は、`data/campaigns.json` の `campaigns` 配列に企画を追加してください。
+現在表示したい企画だけ `isCurrent: true` にします。
+
+```json
+{
+  "id": "new-campaign-id",
+  "title": "企画タイトル",
+  "subtitle": "短いコピー",
+  "period": "2026.07",
+  "lead": "企画概要文",
+  "isCurrent": true,
+  "items": []
+}
 ```
 
-## 公開方法
+## ローカル確認
 
-リポジトリ直下に以下が並ぶようにアップロードしてください。
+JSONを読み込むため、`index.html` を直接ダブルクリックするのではなく、簡易サーバーで確認します。
 
-```text
-index.html
-README.md
-.nojekyll
-assets/
-campaigns/
-data/
+```bash
+python3 -m http.server 8080
 ```
 
-GitHub Pages の Source は `Deploy from a branch`、Branch は `main / root` で公開します。
-
-## 新しい企画を追加する流れ
-
-1. `data/campaigns.json` に企画データを追加
-2. `campaigns/新企画ID/index.html` を既存ページから複製
-3. 複製したHTMLの `<body data-campaign-id="...">` を新企画IDに変更
-4. `isCurrent` を最新企画だけ `true` にする
-5. 最新企画としてトップに出したい場合は `index.html` の `<body data-campaign-id="...">` も新企画IDに変更
-
-## ロゴリンク
-
-ページ上部のロゴは以下に遷移します。
-
-https://whisky-tastingroom.com/shop/ms-tastingroom/
-
-## 画像差し替え
+その後、ブラウザで以下を開きます。
 
 ```text
-assets/images/logo.jpg
-assets/images/main.jpg
+http://localhost:8080
 ```
 
-を差し替えると、ロゴとメインビジュアルが変わります。
+## GitHub Pagesで公開
+
+1. GitHubで新規リポジトリを作成
+2. このフォルダの中身をリポジトリ直下へアップロード
+3. `Settings > Pages` を開く
+4. `Build and deployment` の `Source` を `Deploy from a branch` にする
+5. `Branch` を `main`、フォルダを `/root` にする
+6. 数分後に公開URLへアクセス
 
 ## 注意
 
-このサイトには検索避けのため、`noindex, nofollow` を入れています。本番公開で検索エンジンに出す場合は、各HTMLの以下を削除してください。
+掲載内容は企画用デモです。実販売・予約・決済・問い合わせ機能は含めていません。
 
-```html
-<meta name="robots" content="noindex, nofollow" />
+## 画像の差し替え
+
+ヒーロー画像を使う場合は、以下の場所に画像をアップロードしてください。
+
+```text
+assets/images/main.jpg
 ```
+
+別のファイル名を使う場合は、`assets/css/style.css` の以下を変更してください。
+
+```css
+url("../images/main.jpg")
+```
+
+
+## ロゴリンク
+
+ヘッダー上部のロゴは以下の親会社サイトへ遷移します。
+
+https://whisky-tastingroom.com/shop/ms-tastingroom/
+
+別タブで開く設定です。
+
+
+## 追加済みテスト企画
+
+以下のバックナンバーを追加しています。
+
+- `campaigns/ms-select-5-staff-edition-2025-03/`
+  - M’s Select 5 — Staff Edition —
+  - 告知画像: `assets/images/ms-select-5-staff-edition.png`
+
+バックナンバー一覧は `campaigns/` から確認できます。
