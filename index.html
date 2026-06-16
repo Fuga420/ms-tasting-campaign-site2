@@ -6,75 +6,53 @@
   <title>M's Tasting Room｜Campaign List</title>
   <meta name="description" content="M's Tasting Roomの企画用デモサイト。バースイヤー ヴィンテージ企画の商品リストを掲載しています。" />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="M's Tasting Room top">
-      <span class="brand-mark">M's</span>
-      <span class="brand-copy">Tasting Room</span>
-    </a>
+    <a class="brand" href="#top">M's Tasting Room</a>
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#concept">Concept</a>
-      <a href="#campaign">Campaign</a>
-      <a href="#list">Bottle List</a>
+      <a href="#campaign">企画概要</a>
+      <a href="#list">商品リスト</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero section-shell">
-      <p class="eyebrow">Monthly Whisky Campaign</p>
-      <h1>Birthyear Vintage<br><span>Whisky List</span></h1>
-      <p class="hero-lead">生まれ年で選ぶ、特別な一杯。希少なヴィンテージボトルを、在庫・試飲可否まで一目で確認できる企画用リストです。</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#list">リストを見る</a>
-        <a class="button secondary" href="#campaign">企画概要</a>
+      <div class="hero-copy">
+        <p class="eyebrow">Monthly Campaign</p>
+        <h1>Birthyear Vintage Whisky List</h1>
+        <p class="hero-lead">生まれ年で選ぶ、特別な一本。ヴィンテージボトルの在庫・試飲可否を一覧で確認できます。</p>
+        <a class="button" href="#list">商品リストを見る</a>
       </div>
-      <div class="hero-panel" aria-label="campaign highlights">
-        <div>
-          <span class="metric-value" id="metricTotal">--</span>
-          <span class="metric-label">Bottles</span>
-        </div>
-        <div>
-          <span class="metric-value" id="metricStock">--</span>
-          <span class="metric-label">In Stock</span>
-        </div>
-        <div>
-          <span class="metric-value" id="metricTasting">--</span>
-          <span class="metric-label">Tasting</span>
-        </div>
-      </div>
+      <div class="hero-visual" aria-label="Campaign visual"></div>
     </section>
 
-    <section id="concept" class="section-shell concept-grid">
-      <div>
-        <p class="eyebrow">Concept</p>
-        <h2>選ぶ時間まで、テイスティング体験にする。</h2>
-      </div>
-      <p>高価格帯・希少性の高いウイスキーを、蒸留年やシリーズから横断的に比較できるように設計しました。店舗情報やEC機能は置かず、企画の世界観と商品リストの見やすさに絞ったデモサイトです。</p>
-    </section>
-
-    <section id="campaign" class="section-shell campaign-card">
-      <div class="campaign-copy">
+    <section id="campaign" class="section-shell campaign-section">
+      <div class="section-title">
         <p class="eyebrow">Current Campaign</p>
         <h2 id="campaignTitle">バースイヤー ヴィンテージ企画</h2>
-        <p id="campaignLead">希少なヴィンテージボトルを、蒸留年・在庫・試飲可否から探せる企画リストです。</p>
       </div>
-      <div class="campaign-stats">
+      <p id="campaignLead">希少なヴィンテージボトルを、蒸留年・在庫・試飲可否から探せる企画リストです。</p>
+      <div class="summary-grid" aria-label="Campaign summary">
         <dl>
-          <dt>Oldest Vintage</dt>
-          <dd id="oldestYear">--</dd>
+          <dt>掲載数</dt>
+          <dd><span id="metricTotal">--</span> 本</dd>
         </dl>
         <dl>
-          <dt>Newest Vintage</dt>
-          <dd id="newestYear">--</dd>
+          <dt>在庫あり</dt>
+          <dd><span id="metricStock">--</span> 本</dd>
         </dl>
         <dl>
-          <dt>Price Range</dt>
+          <dt>試飲可</dt>
+          <dd><span id="metricTasting">--</span> 本</dd>
+        </dl>
+        <dl>
+          <dt>蒸留年</dt>
+          <dd><span id="oldestYear">--</span> - <span id="newestYear">--</span></dd>
+        </dl>
+        <dl>
+          <dt>価格帯</dt>
           <dd id="priceRange">--</dd>
         </dl>
       </div>
@@ -84,7 +62,7 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Bottle List</p>
-          <h2>Vintage Selection</h2>
+          <h2>商品リスト</h2>
         </div>
         <p class="result-count"><span id="resultCount">0</span> 件表示</p>
       </div>
@@ -157,7 +135,7 @@
 
   <footer class="site-footer">
     <p>M's Tasting Room — Campaign Demo Site</p>
-    <p>20歳未満の飲酒は法律で禁止されています。掲載内容は企画用デモです。</p>
+    <p>20歳未満の飲酒は法律で禁止されています。</p>
   </footer>
 
   <script src="assets/js/main.js"></script>
