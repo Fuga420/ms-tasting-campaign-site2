@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M's Tasting Room｜Campaign List</title>
+  <meta name="description" content="M's Tasting Roomの企画用デモサイト。バースイヤー ヴィンテージ企画の商品リストを掲載しています。" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="M's Tasting Room top">
+      <span class="brand-mark">M's</span>
+      <span class="brand-copy">Tasting Room</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#concept">Concept</a>
+      <a href="#campaign">Campaign</a>
+      <a href="#list">Bottle List</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <p class="eyebrow">Monthly Whisky Campaign</p>
+      <h1>Birthyear Vintage<br><span>Whisky List</span></h1>
+      <p class="hero-lead">生まれ年で選ぶ、特別な一杯。希少なヴィンテージボトルを、在庫・試飲可否まで一目で確認できる企画用リストです。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#list">リストを見る</a>
+        <a class="button secondary" href="#campaign">企画概要</a>
+      </div>
+      <div class="hero-panel" aria-label="campaign highlights">
+        <div>
+          <span class="metric-value" id="metricTotal">--</span>
+          <span class="metric-label">Bottles</span>
+        </div>
+        <div>
+          <span class="metric-value" id="metricStock">--</span>
+          <span class="metric-label">In Stock</span>
+        </div>
+        <div>
+          <span class="metric-value" id="metricTasting">--</span>
+          <span class="metric-label">Tasting</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="concept" class="section-shell concept-grid">
+      <div>
+        <p class="eyebrow">Concept</p>
+        <h2>選ぶ時間まで、テイスティング体験にする。</h2>
+      </div>
+      <p>高価格帯・希少性の高いウイスキーを、蒸留年やシリーズから横断的に比較できるように設計しました。店舗情報やEC機能は置かず、企画の世界観と商品リストの見やすさに絞ったデモサイトです。</p>
+    </section>
+
+    <section id="campaign" class="section-shell campaign-card">
+      <div class="campaign-copy">
+        <p class="eyebrow">Current Campaign</p>
+        <h2 id="campaignTitle">バースイヤー ヴィンテージ企画</h2>
+        <p id="campaignLead">希少なヴィンテージボトルを、蒸留年・在庫・試飲可否から探せる企画リストです。</p>
+      </div>
+      <div class="campaign-stats">
+        <dl>
+          <dt>Oldest Vintage</dt>
+          <dd id="oldestYear">--</dd>
+        </dl>
+        <dl>
+          <dt>Newest Vintage</dt>
+          <dd id="newestYear">--</dd>
+        </dl>
+        <dl>
+          <dt>Price Range</dt>
+          <dd id="priceRange">--</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section id="list" class="section-shell list-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Bottle List</p>
+          <h2>Vintage Selection</h2>
+        </div>
+        <p class="result-count"><span id="resultCount">0</span> 件表示</p>
+      </div>
+
+      <div class="toolbar" aria-label="filter controls">
+        <label class="control control-wide">
+          <span>検索</span>
+          <input id="searchInput" type="search" placeholder="蒸留所・シリーズ・年で検索" autocomplete="off" />
+        </label>
+        <label class="control">
+          <span>年代</span>
+          <select id="yearFilter">
+            <option value="all">すべて</option>
+            <option value="1960">1960年代</option>
+            <option value="1970">1970年代</option>
+            <option value="1980">1980年代</option>
+            <option value="1990">1990年代</option>
+            <option value="2000">2000年代</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>在庫</span>
+          <select id="stockFilter">
+            <option value="all">すべて</option>
+            <option value="true">在庫あり</option>
+            <option value="false">在庫なし</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>試飲</span>
+          <select id="tastingFilter">
+            <option value="all">すべて</option>
+            <option value="true">試飲可</option>
+            <option value="false">試飲不可</option>
+          </select>
+        </label>
+        <label class="control">
+          <span>並び順</span>
+          <select id="sortSelect">
+            <option value="year-asc">蒸留年が古い順</option>
+            <option value="year-desc">蒸留年が新しい順</option>
+            <option value="price-asc">価格が低い順</option>
+            <option value="price-desc">価格が高い順</option>
+            <option value="age-desc">熟成年数が長い順</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="Whisky list table" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>蒸留年</th>
+              <th>ボトリング / シリーズ</th>
+              <th>蒸留所</th>
+              <th>年数</th>
+              <th>価格</th>
+              <th>在庫</th>
+              <th>試飲</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="cardList" class="card-list" aria-label="Whisky list cards"></div>
+      <p id="emptyMessage" class="empty-message" hidden>条件に一致するボトルがありません。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>M's Tasting Room — Campaign Demo Site</p>
+    <p>20歳未満の飲酒は法律で禁止されています。掲載内容は企画用デモです。</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
