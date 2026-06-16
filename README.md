@@ -67,12 +67,3 @@ assets/images/main.jpg
 ```css
 url("../images/main.jpg")
 ```
-
-
-## ロゴリンク
-
-ヘッダー上部のロゴは以下の親会社サイトへ遷移します。
-
-https://whisky-tastingroom.com/shop/ms-tastingroom/
-
-別タブで開く設定です。
