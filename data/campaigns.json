@@ -685,7 +685,8 @@
           "group": "1993年以降",
           "sourceSheet": "1993~"
         }
-      ]
+      ],
+      "sortKey": "2025.06"
     },
     {
       "id": "peated-malt-selection-2025-05",
@@ -791,7 +792,8 @@
           "group": "ピーテッド",
           "sourceSheet": "test"
         }
-      ]
+      ],
+      "sortKey": "2025.05"
     },
     {
       "id": "sherry-cask-collection-2025-04",
@@ -897,7 +899,8 @@
           "group": "シェリー",
           "sourceSheet": "test"
         }
-      ]
+      ],
+      "sortKey": "2025.04"
     },
     {
       "id": "ms-select-5-staff-edition-2025-03",
@@ -967,7 +970,9 @@
           "tasting": true,
           "group": "M’s Select 5"
         }
-      ]
+      ],
+      "sortKey": "2025.03",
+      "archiveLabel": "バックナンバー"
     },
     {
       "id": "japanese-whisky-feature-2025-03",
@@ -1073,7 +1078,53 @@
           "group": "ジャパニーズ",
           "sourceSheet": "test"
         }
-      ]
+      ],
+      "sortKey": "2025.03"
+    },
+    {
+      "id": "point-up-campaign",
+      "title": "ポイントアップキャンペーン",
+      "subtitle": "キャンペーン期間中、ポイント10%還元。",
+      "period": "実施中",
+      "sortKey": "9999.99",
+      "archiveLabel": "実施中",
+      "lead": "6月2日から6月30日まで、ポイント10%還元キャンペーンを開催しています。",
+      "image": "assets/images/campaign-point-up.png",
+      "archiveMeta": [
+        "POINT 10%還元",
+        "06.02–06.30"
+      ],
+      "items": []
+    },
+    {
+      "id": "fukubukuro-2026-01",
+      "title": "福袋 2026",
+      "subtitle": "限定10セット。福袋限定ブレンデッド入りの特別セット。",
+      "period": "2026.01",
+      "sortKey": "2026.01",
+      "archiveLabel": "バックナンバー",
+      "lead": "2026年1月6日より販売開始。お得な100mlブレンデッド3種を詰め合わせた、数量限定の福袋企画です。",
+      "image": "assets/images/campaign-fukubukuro-2026-01.png",
+      "archiveMeta": [
+        "限定10セット",
+        "税込5,000円"
+      ],
+      "items": []
+    },
+    {
+      "id": "blind-tasting-challenge-2025-09",
+      "title": "M’s BLIND TASTING CHALLENGE",
+      "subtitle": "銘柄を伏せて楽しむ、ブラインドテイスティング企画。",
+      "period": "2025.09",
+      "sortKey": "2025.09",
+      "archiveLabel": "バックナンバー",
+      "lead": "香り、味わい、余韻から正体を探る、M’s Tasting Roomのブラインドテイスティングチャレンジです。",
+      "image": "assets/images/campaign-blind-tasting-2025-09.jpg",
+      "archiveMeta": [
+        "Blind Tasting",
+        "Challenge"
+      ],
+      "items": []
     }
   ]
 }

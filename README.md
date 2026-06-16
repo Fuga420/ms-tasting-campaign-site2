@@ -87,3 +87,13 @@ https://whisky-tastingroom.com/shop/ms-tastingroom/
   - 告知画像: `assets/images/ms-select-5-staff-edition.png`
 
 バックナンバー一覧は `campaigns/` から確認できます。
+
+
+## 今回の更新
+
+- 企画概要下の「掲載数 / 在庫あり / 試飲可 / 蒸留年 / 価格帯」の集計表を削除しました。
+- バックナンバーに以下を追加しました。
+  - 福袋 2026
+  - M’s BLIND TASTING CHALLENGE
+  - ポイントアップキャンペーン
+- バックナンバー一覧に画像サムネイルを表示するようにしました。

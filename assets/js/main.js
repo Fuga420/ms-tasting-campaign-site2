@@ -123,20 +123,20 @@ function render() {
 }
 
 function renderStats(campaign) {
-  const items = campaign.items;
+  const items = campaign.items || [];
   const years = items.map((item) => Number(item.distilledYear)).filter(Number.isFinite);
   const prices = items.map((item) => Number(item.price)).filter(Number.isFinite);
   const stockCount = items.filter((item) => item.stock).length;
   const tastingCount = items.filter((item) => item.tasting).length;
 
-  els.metricTotal.textContent = items.length;
-  els.metricStock.textContent = stockCount;
-  els.metricTasting.textContent = tastingCount;
-  els.oldestYear.textContent = years.length ? Math.min(...years) : '—';
-  els.newestYear.textContent = years.length ? Math.max(...years) : '—';
-  els.priceRange.textContent = prices.length ? `${yen(Math.min(...prices))} – ${yen(Math.max(...prices))}` : '—';
-  els.campaignTitle.textContent = campaign.title;
-  els.campaignLead.textContent = campaign.lead;
+  if (els.metricTotal) els.metricTotal.textContent = items.length;
+  if (els.metricStock) els.metricStock.textContent = stockCount;
+  if (els.metricTasting) els.metricTasting.textContent = tastingCount;
+  if (els.oldestYear) els.oldestYear.textContent = years.length ? Math.min(...years) : '—';
+  if (els.newestYear) els.newestYear.textContent = years.length ? Math.max(...years) : '—';
+  if (els.priceRange) els.priceRange.textContent = prices.length ? `${yen(Math.min(...prices))} – ${yen(Math.max(...prices))}` : '—';
+  if (els.campaignTitle) els.campaignTitle.textContent = campaign.title;
+  if (els.campaignLead) els.campaignLead.textContent = campaign.lead;
   if (els.campaignPeriod) els.campaignPeriod.textContent = campaign.period || 'Campaign';
   if (els.heroTitle) els.heroTitle.textContent = campaign.title;
   if (els.heroLead) els.heroLead.textContent = campaign.subtitle || campaign.lead;

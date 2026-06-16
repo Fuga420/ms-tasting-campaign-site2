@@ -38,7 +38,7 @@ function archiveMeta(campaign) {
   const s = stats(campaign.items || []);
   const unit = campaign.unit || '本';
   const price = s.priceMin !== null && s.priceMax !== null ? `${yen(s.priceMin)}〜${yen(s.priceMax)}` : '価格未定';
-  return [`${s.total}${unit}`, `試飲可 ${s.tasting}${unit}`, price];
+  return [`${s.total}${unit}`, price];
 }
 
 async function initArchive() {
@@ -46,18 +46,22 @@ async function initArchive() {
     const response = await fetch(dataPath);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    const campaigns = [...data.campaigns].sort((a, b) => String(b.period).localeCompare(String(a.period)));
+    const campaigns = [...data.campaigns].sort((a, b) => String(b.sortKey || b.period).localeCompare(String(a.sortKey || a.period)));
 
     archiveEl.innerHTML = campaigns.map((campaign) => {
       const href = `${rootPath}campaigns/${campaign.id}/`;
-      const label = campaign.isCurrent ? '最新企画' : 'バックナンバー';
+      const label = campaign.archiveLabel || (campaign.isCurrent ? '最新企画' : 'バックナンバー');
       const meta = archiveMeta(campaign).map((item) => `<span>${escapeHtml(item)}</span>`).join('');
+      const thumb = campaign.image ? `<div class="archive-card__thumb"><img src="${rootPath}${escapeHtml(campaign.image)}" alt="${escapeHtml(campaign.title)}" loading="lazy"></div>` : '';
       return `
         <a class="archive-card" href="${href}">
-          <p class="archive-card__period">${escapeHtml(campaign.period)} / ${label}</p>
-          <h3>${escapeHtml(campaign.title)}</h3>
-          <p>${escapeHtml(campaign.subtitle || campaign.lead)}</p>
-          <div class="archive-card__meta">${meta}</div>
+          ${thumb}
+          <div class="archive-card__body">
+            <p class="archive-card__period">${escapeHtml(campaign.period)} / ${escapeHtml(label)}</p>
+            <h3>${escapeHtml(campaign.title)}</h3>
+            <p>${escapeHtml(campaign.subtitle || campaign.lead)}</p>
+            <div class="archive-card__meta">${meta}</div>
+          </div>
         </a>
       `;
     }).join('');
