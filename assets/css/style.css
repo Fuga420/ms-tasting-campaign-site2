@@ -408,3 +408,103 @@ tbody tr:hover {
     margin-top: 10px;
   }
 }
+
+.archive-section {
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.archive-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: 22px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.archive-card:hover {
+  background: #faf8f4;
+}
+
+.archive-card__period {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.archive-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.archive-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.archive-card__meta {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 1px solid currentColor;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.hero-actions .button {
+  margin-top: 0;
+}
+
+.button.secondary {
+  border-color: var(--line);
+  color: var(--text);
+  background: #ffffff;
+}
+
+.button.secondary:hover {
+  background: #faf8f4;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .archive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .archive-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -21,6 +21,10 @@ const els = {
   priceRange: document.querySelector('#priceRange'),
   campaignTitle: document.querySelector('#campaignTitle'),
   campaignLead: document.querySelector('#campaignLead'),
+  campaignPeriod: document.querySelector('#campaignPeriod'),
+  heroTitle: document.querySelector('#heroTitle'),
+  heroLead: document.querySelector('#heroLead'),
+  backnumberButton: document.querySelector('#backnumberButton'),
 };
 
 const formatter = new Intl.NumberFormat('ja-JP');
@@ -53,6 +57,7 @@ function applyFilters() {
       item.distillery,
       item.age,
       item.price,
+      item.group,
     ].join(' '));
 
     const matchesSearch = !q || haystack.includes(q);
@@ -127,11 +132,15 @@ function renderStats(campaign) {
   els.metricTotal.textContent = items.length;
   els.metricStock.textContent = stockCount;
   els.metricTasting.textContent = tastingCount;
-  els.oldestYear.textContent = Math.min(...years);
-  els.newestYear.textContent = Math.max(...years);
-  els.priceRange.textContent = `${yen(Math.min(...prices))} – ${yen(Math.max(...prices))}`;
+  els.oldestYear.textContent = years.length ? Math.min(...years) : '—';
+  els.newestYear.textContent = years.length ? Math.max(...years) : '—';
+  els.priceRange.textContent = prices.length ? `${yen(Math.min(...prices))} – ${yen(Math.max(...prices))}` : '—';
   els.campaignTitle.textContent = campaign.title;
   els.campaignLead.textContent = campaign.lead;
+  if (els.campaignPeriod) els.campaignPeriod.textContent = campaign.period || 'Campaign';
+  if (els.heroTitle) els.heroTitle.textContent = campaign.title;
+  if (els.heroLead) els.heroLead.textContent = campaign.subtitle || campaign.lead;
+  document.title = `M's Tasting Room｜${campaign.title}`;
 }
 
 function escapeHtml(value) {
@@ -151,12 +160,22 @@ function bindEvents() {
   });
 }
 
+function selectCampaign(campaigns) {
+  const campaignId = document.body.dataset.campaignId;
+  if (campaignId) {
+    const campaign = campaigns.find((entry) => entry.id === campaignId);
+    if (campaign) return campaign;
+  }
+  return campaigns.find((entry) => entry.isCurrent) || campaigns[0];
+}
+
 async function init() {
   try {
-    const response = await fetch('data/campaigns.json');
+    const dataPath = document.body.dataset.dataPath || 'data/campaigns.json';
+    const response = await fetch(dataPath);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    const campaign = data.campaigns.find((entry) => entry.isCurrent) || data.campaigns[0];
+    const campaign = selectCampaign(data.campaigns);
     state.items = campaign.items;
     state.filtered = [...state.items];
     renderStats(campaign);
